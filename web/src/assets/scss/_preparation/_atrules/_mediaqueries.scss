@@ -1,0 +1,131 @@
+// =============================================================================
+// MediaQueries
+// =============================================================================
+// ---------------------------------------------------------------
+// private
+// ---------------------------------------------------------------
+@mixin screen($bp-min, $bp-max) {
+  @media screen and (min-width: map-get($breakpoints, $bp-min)) and (max-width: map-get($breakpoints, $bp-max) - 1px) {
+    @content;
+  }
+}
+
+@mixin max-screen($bp) {
+  @media screen and (max-width: map-get($breakpoints, $bp) - 1px) {
+    @content;
+  }
+}
+
+@mixin min-screen($bp) {
+  //@debug "#{$bp}"
+  @media screen and (min-width: map-get($breakpoints, $bp)) {
+    @content;
+  }
+}
+
+// ---------------------------------------------------------------
+// public
+// ---------------------------------------------------------------
+@mixin S() {
+  @if $lteIE==false {
+    @include max-screen(mobile) {
+      @content;
+    }
+  }
+}
+
+@mixin M() {
+  @if $lteIE==false {
+    @include screen(mobile, tablet) {
+      @content;
+    }
+  }
+}
+
+@mixin L() {
+  @if $lteIE==true {
+    @include max-screen(pc) {
+      @content;
+    }
+  } @else {
+    @include screen(tablet, pc) {
+      @content;
+    }
+  }
+}
+
+@mixin XL() {
+  @if $lteIE==true {
+    @content;
+  } @else {
+    @include min-screen(pc) {
+      @content;
+    }
+  }
+}
+
+@mixin S-M() {
+  @if $lteIE==false {
+    @include max-screen(tablet) {
+      @content;
+    }
+  }
+}
+
+@mixin M-L() {
+  @if $lteIE==false {
+    @include screen(mobile, pc) {
+      @content;
+    }
+  }
+}
+
+@mixin L-XL() {
+  @if $lteIE==true {
+    @content;
+  } @else {
+    @include min-screen(tablet) {
+      @content;
+    }
+  }
+}
+
+@mixin S-L() {
+  @if $lteIE==false {
+    @include max-screen(pc) {
+      @content;
+    }
+  }
+}
+
+@mixin M-XL() {
+  @if $lteIE==false {
+    @include min-screen(mobile) {
+      @content;
+    }
+  }
+}
+
+@mixin MQ-UP($minBp) {
+  @if type-of($minBp) == number and $minBp > 0 {
+    @media screen and (min-width: #{$minBp}px) {
+      @content;
+    }
+  }
+}
+
+@mixin MQ-DOWN($maxBp) {
+  @if type-of($maxBp) == number and $maxBp > 0 {
+    @media screen and (max-width: #{$maxBp}px) {
+      @content;
+    }
+  }
+}
+
+@mixin MQ-BETWEEN($minBp, $maxBp) {
+  @if type-of($minBp) == number and type-of($maxBp) == number and $minBp < $maxBp {
+    @media screen and (min-width: #{$minBp}px) and (max-width: #{$maxBp}px) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "syler.sass-indented",
+    "ducfilan.pug-formatter",
+    "mrmlnc.vscode-puglint",
+    // "abusaidm.html-snippets",
+    "xabikos.javascriptsnippets",
+  ]
+}

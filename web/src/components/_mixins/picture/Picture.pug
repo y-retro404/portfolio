@@ -1,0 +1,11 @@
+//- pictureタグのmixin
+  @param name 画像ファイル名
+  @param exp 拡張子
+  @param alt ALTテキスト
+  Use
+  /assets/images/top/hoge_pc.pngと/assets/images/top/hoge_sp.pngを参照したい場合
+  +picture("top/hoge", "png", "説明文")
+mixin picture(name, exp, alt)
+  picture
+    source(srcset=`${imgPath}${name}_sp.${exp}` media=`(max-width:${breakpoint}px)`)
+    img(src=`${imgPath}${name}_pc.${exp}` alt=alt)

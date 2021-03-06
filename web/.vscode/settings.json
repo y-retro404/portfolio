@@ -1,0 +1,56 @@
+{
+  // PeacockColor
+  "peacock.color": "#3f3f3f",
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#585858",
+    "activityBar.activeBorder": "#103010",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#103010",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "titleBar.activeBackground": "#3f3f3f",
+    "titleBar.inactiveBackground": "#3f3f3f99",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "statusBar.background": "#3f3f3f",
+    "statusBarItem.hoverBackground": "#585858",
+    "statusBar.foreground": "#e7e7e7",
+    "activityBar.activeBackground": "#585858"
+  },
+  "emmet.variables": {
+    "lang": "ja"
+  },
+  // 拡張子と読み込みタイプの紐づけ
+  "files.associations": {
+    ".pug-lintrc": "json",
+    ".stylelintrc": "json",
+    ".eslintrc": "json",
+    ".postcssrc.js": "javascript",
+    ".jsbeautifyrc": "json"
+  },
+  // Set the default
+  "editor.formatOnSave": false,
+
+  // ↓↓↓ 自動整形を無効にする際は下記の記述を全て削除 ↓↓↓ ------
+
+  // -----------------------------------------------------------------
+  // pug(jade)
+  // -----------------------------------------------------------------
+  "[jade]": {
+    "editor.formatOnSave": true
+  },
+  "puglint.enable": true,
+  // -----------------------------------------------------------------
+  // VSCode側のlintersを無効化
+  // -----------------------------------------------------------------
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  // -----------------------------------------------------------------
+  // CSS,JSの自動整形を有効化
+  // -----------------------------------------------------------------
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true,
+    "source.fixAll.eslint": true
+  }
+}

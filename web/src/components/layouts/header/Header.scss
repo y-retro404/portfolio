@@ -1,0 +1,105 @@
+.grobalHeader {
+  z-index: 10;
+  width: 100%;
+  @include L-XL {
+    position: sticky;
+    top: 34px;
+    left: 0;
+  }
+  @include S-M {
+    position: fixed;
+    top: calcvw(20);
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+  }
+  .grobalHeader__logo {
+    @include L-XL {
+      width: 32px;
+      height: 32px;
+    }
+    @include S-M {
+      width: calcvw(32);
+      height: calcvw(32);
+    }
+    > a {
+      @include imageReplace;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-image: url(../images/common/icon_top.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+    }
+  }
+  .grobalHeader__menu {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 10;
+    text-align: center;
+    transform: translateY(-50%);
+    .grobalHeader__menuIcon {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      @include L-XL {
+        width: 20px;
+        height: 14px;
+      }
+      @include S-M {
+        width: calcvw(20);
+        height: calcvw(14);
+      }
+      > span {
+        &,
+        &::before,
+        &::after {
+          display: block;
+          width: 100%;
+          height: 2px;
+          background-color: $mainColor;
+          border-radius: 1px;
+        }
+        &::before,
+        &::after {
+          position: absolute;
+          content: "";
+          transition: all 0.6s $easeOutCubic;
+        }
+        &::before {
+          @include L-XL {
+            transform: translateY(-6px);
+          }
+          @include S-M {
+            transform: translateY(calcvw(-6));
+          }
+        }
+        &::after {
+          @include L-XL {
+            transform: translateY(6px);
+          }
+          @include S-M {
+            transform: translateY(calcvw(6));
+          }
+        }
+      }
+    }
+    &.is-active {
+      .grobalHeader__menuIcon {
+        > span {
+          background-color: transparent;
+          &::before {
+            transform: translateY(0) rotate(-315deg);
+          }
+          &::after {
+            transform: translateY(0) rotate(315deg);
+          }
+        }
+      }
+    }
+  }
+}

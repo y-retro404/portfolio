@@ -1,0 +1,228 @@
+.workList {
+  width: 100%;
+}
+
+.workList__item {
+  display: block;
+  text-align: center;
+}
+
+.workItem__imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 70.5882%;
+}
+
+.workItem__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.workItem__image::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  content: "";
+  border: 1px solid #333;
+}
+
+.workItem__text {
+  display: block;
+}
+
+.workDetail {
+  line-height: 1.8em;
+}
+
+.workDetail__heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+}
+.workDetail__heading::before, .workDetail__heading::after {
+  display: block;
+  height: 1px;
+  content: "";
+  background-color: #333;
+}
+
+.workDetail__link {
+  display: inline-block;
+  font-weight: bold;
+}
+.workDetail__link::after {
+  display: inline-block;
+  content: "";
+  background-image: url("../images/common/icon_tab.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.worksDetail__slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-container {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+.swiper-pagination {
+  line-height: 0;
+}
+
+.swiper-pagination-bullet {
+  background-color: transparent;
+  border: 1px solid #333;
+  opacity: 1;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #333;
+}
+
+.swiper-slide::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  content: "";
+  border: 1px solid #333;
+}
+
+@media screen and (min-width: 769px) {
+  .workList {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .workList::after {
+    display: block;
+    width: 272px;
+    content: "";
+  }
+  .workList li:nth-of-type(n + 4) {
+    margin-top: 40px;
+  }
+  .workList__item {
+    width: 272px;
+  }
+  .workItem__text {
+    margin-top: 16px;
+  }
+  .workDetail {
+    font-size: 14px;
+  }
+  .workDetail__section + .workDetail__section {
+    margin-top: 32px;
+  }
+  .workDetail__heading {
+    margin-bottom: 14px;
+  }
+  .workDetail__heading::before, .workDetail__heading::after {
+    width: 25px;
+  }
+  .workDetail__heading::before {
+    margin-right: 15px;
+  }
+  .workDetail__heading::after {
+    margin-left: 15px;
+  }
+  .workDetail__link {
+    margin-bottom: 22px;
+  }
+  .workDetail__link:hover {
+    text-decoration: underline;
+  }
+  .workDetail__link::after {
+    width: 10px;
+    height: 8px;
+    margin-bottom: 2px;
+    margin-left: 4px;
+  }
+  .workDetail__text + .workDetail__text {
+    margin-top: 16px;
+  }
+  .worksDetail__slider {
+    padding-bottom: 20px;
+    margin-bottom: 34px;
+  }
+  .swiper-pagination {
+    bottom: -20px !important;
+  }
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .workList li + li {
+    margin-top: 10.6666666667vw;
+  }
+  .workList__item {
+    width: 100%;
+  }
+  .workItem__text {
+    margin-top: 4.2666666667vw;
+  }
+  .workDetail {
+    font-size: 3.7333333333vw;
+  }
+  .workDetail__section + .workDetail__section {
+    margin-top: 8.5333333333vw;
+  }
+  .workDetail__heading {
+    margin-bottom: 3.7333333333vw;
+  }
+  .workDetail__heading::before, .workDetail__heading::after {
+    width: 6.6666666667vw;
+  }
+  .workDetail__heading::before {
+    margin-right: 4vw;
+  }
+  .workDetail__heading::after {
+    margin-left: 4vw;
+  }
+  .workDetail__link {
+    margin-bottom: 5.8666666667vw;
+  }
+  .workDetail__link::after {
+    width: 2.6666666667vw;
+    height: 2.1333333333vw;
+    margin-bottom: 0.5333333333vw;
+    margin-left: 1.0666666667vw;
+  }
+  .workDetail__text + .workDetail__text {
+    margin-top: 4.2666666667vw;
+  }
+  .worksDetail__slider {
+    padding-bottom: 5.3333333333vw;
+    margin-bottom: 9.0666666667vw;
+  }
+  .swiper-pagination {
+    bottom: -5.3333333333vw !important;
+  }
+  .swiper-pagination-bullet {
+    width: 2.6666666667vw;
+    height: 2.6666666667vw;
+    margin: 0 1.0666666667vw !important;
+  }
+}

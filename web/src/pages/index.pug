@@ -1,0 +1,26 @@
+//- レイアウト読み込み
+extends /layouts/layout
+
+//- ページ設定
+block config
+  include /config
+  //- _config.pug内で設定したKeyを指定
+  - const key = "top"
+  - const page = pages[key]
+  //- 相対画像パスを生成
+  - const imgPath = page.filePath + imgRootPath
+
+block append head
+  link(rel="stylesheet" href=rootPath + "assets/css/top.css")
+
+block content
+  .top
+    //- Hero
+    include /components/pages/top/hero/Hero
+    //- Works
+    include /components/pages/top/works/Works
+    //- About
+    include /components/pages/top/about/About
+
+block append script
+  script(src=rootPath + "assets/js/top.bundle.js")

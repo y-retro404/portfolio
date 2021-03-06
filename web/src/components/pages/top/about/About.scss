@@ -1,0 +1,45 @@
+// =============================================================================
+// About
+// =============================================================================
+.about {
+  width: 100%;
+  margin: 0 auto;
+  @include L-XL {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.about__image {
+  border: 1px solid $mainColor;
+  @include L-XL {
+    width: 250px;
+    height: 250px;
+  }
+  @include S-M {
+    width: calcvw(202);
+    height: calcvw(202);
+    margin: 0 auto;
+  }
+}
+.about__textBox {
+  line-height: 1.8em;
+  text-align: justify;
+  @include L-XL {
+    flex: 1;
+    margin-left: 46px;
+    font-size: 16px;
+  }
+  @include S-M {
+    margin-top: calcvw(32);
+    font-size: calcvw(16);
+  }
+}
+.about__subText {
+  @include L-XL {
+    margin-top: 32px;
+  }
+  @include S-M {
+    margin-top: calcvw(32);
+  }
+}

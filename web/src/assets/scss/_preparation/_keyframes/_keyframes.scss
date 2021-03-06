@@ -1,0 +1,52 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUP {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes svg {
+  0% {
+    fill: transparent;
+    stroke-dasharray: 2000px;
+    stroke-dashoffset: 2000px;
+    stroke-width: 1px;
+  }
+  30% {
+    fill: transparent;
+    stroke-dashoffset: 0;
+  }
+  40% {
+    fill: $mainColor;
+    stroke-width: 1px;
+  }
+  100% {
+    stroke-width: 0;
+  }
+}
+
+@keyframes heroScrollAnimaiton {
+  0% {
+    transform: translate(0, -35px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+}

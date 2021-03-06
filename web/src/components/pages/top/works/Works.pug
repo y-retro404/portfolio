@@ -1,0 +1,21 @@
+//- Works
+section#works.section
+  h2.heading
+    span.heading--en WORKS
+    span.heading--ja 実績
+  .works
+    //- スライダー
+    .works__sliderWrapper
+      .works__slider
+        .swiper-container
+          .swiper-wrapper
+            each item, index in workListData
+              .swiper-slide
+                a(href=`./works/0${index}`)
+                  img(src=`${imgRootPath}works/${item.name}/image1.jpg` alt=`${item.imageName}`)
+      //- navigation buttons
+      .swiper-button-prev
+      .swiper-button-next
+
+    .works__link
+      a(href="./works") 実績一覧

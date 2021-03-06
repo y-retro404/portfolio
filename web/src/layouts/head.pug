@@ -1,0 +1,45 @@
+//- =============================================================================
+//- 挿入する情報の生成
+//- =============================================================================
+-
+  // どの環境で使用中か指定
+  // domainLocal, domainStaging, domainProduction
+  const domain = domainLocal
+
+  const path = page.pagePath
+  const rootPath = page.filePath
+  let title = page.title
+  let description = page.description
+
+//- --------------------------------------------------
+//- title
+//- 各ページで指定しない場合、ここに共通内容を書く
+//- --------------------------------------------------
+if title === ""
+  - title = "ポートフォリオサイト｜石井佑典"
+
+//- --------------------------------------------------
+//- description
+//- 各ページで指定しない場合、ここに共通内容を書く
+//- --------------------------------------------------
+if description === ""
+  - description = "ポートフォリオサイト"
+
+//- =============================================================================
+//- 共通 - head
+//- =============================================================================
+meta(charset="UTF-8")
+meta(name="viewport" content="width=device-width, initial-scale=1.0")
+meta(http-equiv="X-UA-Compatible" content="IE=edge")
+meta(name="format-detection" content="telephone=no")
+//- Android版のChromeにテーマカラーを指定
+//- meta(name="theme-color" content="#4285f4")
+
+title #{title}
+meta(name="description" content=description)
+
+link(rel="icon" href="/favicon.ico")
+
+// site custom setting
+link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel")
+link(rel="stylesheet" href=rootPath + "assets/css/common.css")

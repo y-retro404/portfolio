@@ -1,0 +1,62 @@
+// =============================================================================
+// Hero
+// =============================================================================
+.hero {
+  @include L-XL {
+    margin: 36px 0 136px;
+  }
+  @include S-M {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calcvw(596);
+    margin-bottom: calcvw(50);
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: calcvw(30);
+      left: 0;
+      width: calcvw(20);
+      height: calcvw(10);
+      margin: auto;
+      content: "";
+      background: url($imgPath + "common/icon_arrow.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0;
+      animation: heroScrollAnimaiton 1.5s 2s $easeOutCubic both infinite;
+    }
+  }
+}
+.hero__inner {
+  @include L-XL {
+    display: flex;
+    justify-content: space-between;
+  }
+  @include S-M {
+    width: 100%;
+  }
+}
+.hero__image {
+  animation: fadeInUP 1s $easeInOutCubic both;
+  @include L-XL {
+    width: 421px;
+    height: 288px;
+  }
+}
+.hero__text {
+  @include L-XL {
+    width: 375px;
+    height: 80px;
+    margin-top: 140px;
+  }
+  @include S-M {
+    margin-top: calcvw(52);
+  }
+  path {
+    fill: $mainColor;
+    stroke: $mainColor;
+    animation: svg 3s 0.5s $easeInCubic both;
+  }
+}

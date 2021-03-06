@@ -1,0 +1,211 @@
+// =============================================================================
+// Mixins
+// =============================================================================
+// ---------------------------------------------------------------
+// Clearfix
+// ---------------------------------------------------------------
+@mixin clearfix {
+  *zoom: 1;
+
+  &::before,
+  &::after {
+    display: table;
+    content: " ";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+// ---------------------------------------------------------------
+// 画像置換
+// ---------------------------------------------------------------
+@mixin imageReplace {
+  display: block;
+  overflow: hidden;
+  font-size: 0;
+  text-indent: 100%;
+  white-space: nowrap;
+  background-repeat: no-repeat;
+}
+
+// ---------------------------------------------------------------
+// スクロールバーを非表示
+// ---------------------------------------------------------------
+@mixin hideScrollBar {
+  // IE, Edge 対応
+  -ms-overflow-style: none;
+  // Firefox 対応
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    // Chrome, Safari 対応
+    display: none;
+  }
+}
+
+// ---------------------------------------------------------------
+// 親要素に対して中央寄せ
+// $duration 方向を指定(x:横のみ, y:縦のみ, xy:縦横)
+// * ex)
+//   @include center(xy)
+// ---------------------------------------------------------------
+@mixin center($direction) {
+  position: absolute;
+  @if $direction==xy {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if $direction==x {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if $direction==y {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+// ---------------------------------------------------------------
+// font-size(px), line-height一括登録
+// * ex)
+//   @include fz_px(16)
+//   @include fz_px(32/2) $sizeに計算式を入れることも可
+//   @include fz_px(16, 24)
+// ---------------------------------------------------------------
+@mixin fz_px($size, $lineHeight: false) {
+  font-size: #{$size}px;
+
+  @if $lineHeight {
+    line-height: roundlineheight($lineHeight, $size);
+  }
+}
+
+// ---------------------------------------------------------------
+// font-size(vw), line-height一括登録
+// calcvw関数を使用して設定されたデザイン幅でvwを計算
+// * ex)
+//   @include fz_vw(14)
+//   @include fz_vw(14, 21)
+//   @include fz_vw(14, 21, 1280) $widthに個別指定も可
+// ---------------------------------------------------------------
+@mixin fz_vw($size, $lineHeight: false, $width: false) {
+  @if $width {
+    font-size: calcvw($size, $width);
+  } @else {
+    font-size: calcvw($size);
+  }
+
+  @if $lineHeight {
+    line-height: roundlineheight($lineHeight, $size);
+  }
+}
+
+// ---------------------------------------------------------------
+// 吹き出し
+// * ex)
+//   @include balloonArrow(10, 10, #000, top);
+// ---------------------------------------------------------------
+@mixin balloonArrow($width: 10, $height: 5, $color: #000, $position: bottom) {
+  position: relative;
+  @if ($position == "top") {
+    &::after {
+      top: -#{$height}px;
+      left: calc(50% - #{$width/2}px);
+      border-color: transparent transparent $color transparent;
+      border-width: 0 #{$width/2}px #{$height}px #{$width/2}px;
+    }
+  } @else if ($position == "right") {
+    &::after {
+      top: calc(50% - #{$width/2}px);
+      right: -#{$height}px;
+      border-color: transparent transparent transparent $color;
+      border-width: #{$width/2}px 0 #{$width/2}px #{$height}px;
+    }
+  } @else if ($position == "bottom") {
+    &::after {
+      bottom: -#{$height}px;
+      left: calc(50% - #{$width/2}px);
+      border-color: $color transparent transparent transparent;
+      border-width: #{$height}px #{$width/2}px 0 #{$width/2}px;
+    }
+  } @else if ($position == "left") {
+    &::after {
+      top: calc(50% - #{$width/2}px);
+      left: -#{$height}px;
+      border-color: transparent $color transparent transparent;
+      border-width: #{$width/2}px #{$height}px #{$width/2}px 0;
+    }
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    border-style: solid;
+  }
+}
+
+// ---------------------------------------------------------------
+// 三角矢印
+// * ex)
+//   @include triangleArrow();
+//   @include triangleArrow($size: 10px, $borderWidth: 2px, $color: $whiteColor) {
+//     right: 0;
+//     bottom: 10px;
+//     left: 0;
+//     margin: auto;
+//   }
+// ---------------------------------------------------------------
+@mixin triangleArrow($size: 20px, $borderWidth: 4px, $color: #000, $position: bottom, $type: a) {
+  position: relative;
+  @if ($position == "top") {
+    &::after {
+      transform: rotate(45deg);
+    }
+  } @else if ($position == "right") {
+    &::after {
+      transform: rotate(135deg);
+    }
+  } @else if ($position == "bottom") {
+    &::after {
+      transform: rotate(-135deg);
+    }
+  } @else if ($position == "left") {
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+  &::after {
+    position: absolute;
+    box-sizing: content-box;
+    display: block;
+    width: $size;
+    height: $size;
+    content: "";
+    border-style: solid;
+    @if ($type == "a") {
+      border-color: $color transparent transparent $color;
+      border-width: $borderWidth;
+    } @else if ($type == "b") {
+      border-color: $color;
+      border-width: $borderWidth 0 0 $borderWidth;
+    }
+    @content;
+  }
+}
+
+// ---------------------------------------------------------------
+// Youtube埋め込み動画のレスポンシブ対応
+// iframeを囲んでいる親クラスに指定
+// ---------------------------------------------------------------
+@mixin youtubeResponsive() {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

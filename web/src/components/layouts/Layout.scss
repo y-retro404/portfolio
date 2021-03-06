@@ -1,0 +1,83 @@
+// =============================================================================
+// レイアウト
+// =============================================================================
+.wrapper {
+  position: relative;
+  @include L-XL {
+    min-width: 912px;
+    padding: 34px 24px 120px;
+  }
+  @include S-M {
+    padding-bottom: calcvw(100);
+  }
+}
+
+.grobalHeader,
+.content {
+  margin: 0 auto;
+  overflow: hidden;
+  @include L-XL {
+    max-width: 864px;
+  }
+  @include S-M {
+    max-width: calcvw(314);
+  }
+}
+
+.section {
+  + .section {
+    @include L-XL {
+      margin-top: 112px;
+    }
+    @include S-M {
+      margin-top: calcvw(64);
+    }
+  }
+}
+
+// TOPページ見出し
+.heading {
+  text-align: center;
+  @include L-XL {
+    margin-bottom: 32px;
+  }
+  @include S-M {
+    margin-bottom: calcvw(20);
+  }
+  > span {
+    display: block;
+    &.heading--en {
+      letter-spacing: 0.16em;
+      @include L-XL {
+        margin-bottom: 8px;
+        font-size: 36px;
+      }
+      @include S-M {
+        margin-bottom: calcvw(5);
+        font-size: calcvw(36);
+      }
+    }
+    &.heading--ja {
+      @include L-XL {
+        font-size: 18px;
+      }
+      @include S-M {
+        font-size: calcvw(18);
+      }
+    }
+  }
+}
+
+// 下層ページ見出し
+.subHeading {
+  text-align: left;
+  letter-spacing: 0.16em;
+  @include L-XL {
+    margin: 72px 0 32px;
+    font-size: 30px;
+  }
+  @include S-M {
+    margin: calcvw(86) 0 calcvw(24);
+    font-size: calcvw(30);
+  }
+}

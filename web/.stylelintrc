@@ -1,0 +1,30 @@
+{
+  "ignoreFiles": [
+    "**/*.css",
+    "**/*.js",
+    "**/*.svg",
+    "**/node_modules/**"
+  ],
+  "syntax": "scss",
+  "plugins": [
+    "stylelint-scss"
+  ],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-recess-order",
+    "stylelint-prettier/recommended"
+  ],
+  "defaultSeverity": "warning",
+  "rules": {
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "indentation": 2,
+    "string-quotes": "double",
+    "selector-combinator-space-after": "always",
+    "declaration-block-trailing-semicolon": "always",
+    "number-leading-zero": "always",
+    "selector-pseudo-element-colon-notation": "double",
+    "declaration-empty-line-before": null,
+    "prettier/prettier": [true, { "printWidth":160 } ]
+  }
+}

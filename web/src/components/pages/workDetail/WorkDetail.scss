@@ -1,0 +1,162 @@
+.workDetail {
+  line-height: 1.8em;
+  @include L-XL {
+    font-size: 14px;
+  }
+  @include S-M {
+    font-size: calcvw(14);
+  }
+}
+.workDetail__section {
+  + .workDetail__section {
+    @include L-XL {
+      margin-top: 32px;
+    }
+    @include S-M {
+      margin-top: calcvw(32);
+    }
+  }
+}
+.workDetail__heading {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  @include L-XL {
+    margin-bottom: 14px;
+  }
+  @include S-M {
+    margin-bottom: calcvw(14);
+  }
+  &::before,
+  &::after {
+    display: block;
+    height: 1px;
+    content: "";
+    background-color: $mainColor;
+    @include L-XL {
+      width: 25px;
+    }
+    @include S-M {
+      width: calcvw(25);
+    }
+  }
+  &::before {
+    @include L-XL {
+      margin-right: 15px;
+    }
+    @include S-M {
+      margin-right: calcvw(15);
+    }
+  }
+  &::after {
+    @include L-XL {
+      margin-left: 15px;
+    }
+    @include S-M {
+      margin-left: calcvw(15);
+    }
+  }
+}
+.workDetail__link {
+  display: inline-block;
+  font-weight: bold;
+  @include L-XL {
+    margin-bottom: 22px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  @include S-M {
+    margin-bottom: calcvw(22);
+  }
+  &::after {
+    display: inline-block;
+    content: "";
+    background-image: url($imgPath + "common/icon_tab.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    @include L-XL {
+      width: 10px;
+      height: 8px;
+      margin-bottom: 2px;
+      margin-left: 4px;
+    }
+    @include S-M {
+      width: calcvw(10);
+      height: calcvw(8);
+      margin-bottom: calcvw(2);
+      margin-left: calcvw(4);
+    }
+  }
+}
+.workDetail__text {
+  + .workDetail__text {
+    @include L-XL {
+      margin-top: 16px;
+    }
+    @include S-M {
+      margin-top: calcvw(16);
+    }
+  }
+}
+
+// -----------------------------------------------------------------
+// Slider
+// -----------------------------------------------------------------
+.worksDetail__slider {
+  position: relative;
+  overflow: hidden;
+  @include L-XL {
+    padding-bottom: 20px;
+    margin-bottom: 34px;
+  }
+  @include S-M {
+    padding-bottom: calcvw(20);
+    margin-bottom: calcvw(34);
+  }
+}
+
+.swiper-container {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+.swiper-pagination {
+  line-height: 0;
+  @include L-XL {
+    bottom: -20px !important;
+  }
+  @include S-M {
+    bottom: calcvw(-20) !important;
+  }
+}
+.swiper-pagination-bullet {
+  background-color: transparent;
+  border: 1px solid $mainColor;
+  opacity: 1;
+  @include L-XL {
+    width: 10px;
+    height: 10px;
+  }
+  @include S-M {
+    width: calcvw(10);
+    height: calcvw(10);
+    margin: 0 calcvw(4) !important;
+  }
+  &.swiper-pagination-bullet-active {
+    background-color: $mainColor;
+  }
+}
+.swiper-slide {
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    content: "";
+    border: 1px solid $mainColor;
+  }
+}

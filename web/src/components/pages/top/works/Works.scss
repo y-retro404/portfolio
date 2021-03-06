@@ -1,0 +1,128 @@
+// =============================================================================
+// Works
+// =============================================================================
+.works {
+  @include L-XL {
+    margin-top: 32px;
+  }
+  @include S-M {
+    margin-top: 20px;
+  }
+}
+
+.works__link {
+  text-align: center;
+  @include L-XL {
+    margin-top: 72px;
+  }
+  @include S-M {
+    margin-top: calcvw(15);
+  }
+  > a {
+    @include L-XL {
+      @include triangleArrow($size: 6px, $borderWidth: 1px, $color: $mainColor, $position: right, $type: b);
+    }
+    @include S-M {
+      @include triangleArrow($size: calcvw(6), $borderWidth: 1px, $color: $mainColor, $position: right, $type: b);
+    }
+    &::after {
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      @include L-XL {
+        right: -11px;
+      }
+      @include S-M {
+        right: calcvw(-20);
+      }
+    }
+  }
+}
+
+.works__sliderWrapper {
+  position: relative;
+  @include L-XL {
+    animation: fadeInUP 1s 0.5s $easeInOutCubic both;
+  }
+}
+
+.works__slider {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  @include L-XL {
+    width: 764px;
+    height: 210px;
+    overflow: hidden;
+  }
+  @include S-M {
+    width: 100%;
+  }
+}
+
+// -----------------------------------------------------------------
+// Swiper
+// -----------------------------------------------------------------
+.swiper-container {
+  @include L-XL {
+    width: 764px;
+    height: 140px;
+    overflow: visible;
+  }
+  @include S-M {
+    width: calcvw(202);
+    height: calcvw(143);
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: $mainColor;
+  &::after {
+    @include L-XL {
+      font-size: 24px;
+    }
+    @include S-M {
+      font-size: calcvw(24);
+    }
+  }
+}
+.swiper-button-prev {
+  @include L-XL {
+    left: -8px;
+  }
+  @include S-M {
+    left: calcvw(-8);
+  }
+}
+.swiper-button-next {
+  @include L-XL {
+    right: -8px;
+  }
+  @include S-M {
+    right: calcvw(-8);
+  }
+}
+
+.swiper-slide {
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    content: "";
+    border: 1px solid $mainColor;
+  }
+  @include L-XL {
+    transition: transform 0.4s linear;
+  }
+}
+
+// アクティブなスライドを拡大する
+.swiper-slide-active {
+  @include L-XL {
+    transform: scale(1.5);
+  }
+}

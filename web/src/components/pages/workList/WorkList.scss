@@ -1,0 +1,68 @@
+.workList {
+  width: 100%;
+  @include L-XL {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    // space-betweenで発生する要素間が空いてしまう問題を防止
+    &::after {
+      display: block;
+      width: 272px;
+      content: "";
+    }
+  }
+  li {
+    @include L-XL {
+      &:nth-of-type(n + 4) {
+        margin-top: 40px;
+      }
+    }
+    @include S-M {
+      + li {
+        margin-top: calcvw(40);
+      }
+    }
+  }
+}
+.workList__item {
+  display: block;
+  text-align: center;
+  @include L-XL {
+    width: 272px;
+  }
+  @include S-M {
+    width: 100%;
+  }
+}
+
+.workItem__imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 70.5882%;
+}
+.workItem__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    content: "";
+    border: 1px solid $mainColor;
+  }
+}
+.workItem__text {
+  display: block;
+  @include L-XL {
+    margin-top: 16px;
+  }
+  @include S-M {
+    margin-top: calcvw(16);
+  }
+}

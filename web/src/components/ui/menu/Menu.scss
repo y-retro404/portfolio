@@ -1,0 +1,58 @@
+.globalMenu {
+  display: none;
+  &.is-open {
+    display: block;
+  }
+}
+.globalMenu__overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $whiteColor;
+  animation: fadeIn 0.3s $easeInOutCubic;
+}
+.globalMenu__container {
+  box-sizing: content-box;
+  width: 255px;
+  padding: 20px;
+}
+.globalMenu__title {
+  margin-bottom: 52px;
+  font-size: 36px;
+  text-align: center;
+  letter-spacing: 0.16em;
+}
+.globalMenu__list {
+  > li + li {
+    margin-top: 26px;
+  }
+}
+.globalMenu__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &::after {
+    display: block;
+    flex: 1;
+    order: 2;
+    height: 1px;
+    margin: 0 10px;
+    content: "";
+    background-color: $mainColor;
+  }
+  > span {
+    &.globalMenu__link--en {
+      order: 1;
+      font-size: 30px;
+    }
+    &.globalMenu__link--jp {
+      order: 3;
+      font-size: 16px;
+    }
+  }
+}

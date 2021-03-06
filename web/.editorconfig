@@ -1,0 +1,23 @@
+#上位階層の.editorconfigを参照しない
+root = true
+
+#文字コード:utf-8
+#改行コード:LF
+#行末の空白文字を削除
+#ファイル末尾が改行コードでない場合は挿入
+#インデント:space
+[*]
+charset = utf-8
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+
+#インデント:space-4
+[*.{php,py}]
+indent_size = 4
+
+#インデント:tab
+[Makefile]
+indent_style = tab

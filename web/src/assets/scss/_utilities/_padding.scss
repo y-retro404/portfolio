@@ -1,0 +1,24 @@
+// =============================================================================
+// 汎用クラス
+// =============================================================================
+// ---------------------------------------------------------------
+// padding
+// ---------------------------------------------------------------
+// padding-top: 0px 〜 padding-top: 20px
+// padding-right: 0px 〜 padding-right: 20px
+// padding-bottom: 0px 〜 padding-bottom: 20px
+// padding-left: 0px 〜 padding-left: 20px
+@for $i from 0 through 4 {
+  .pt-#{$i * 5} {
+    padding-top: #{$i * 5}px;
+  }
+  .pr-#{$i * 5} {
+    padding-right: #{$i * 5}px;
+  }
+  .pb-#{$i * 5} {
+    padding-bottom: #{$i * 5}px;
+  }
+  .pl-#{$i * 5} {
+    padding-left: #{$i * 5}px;
+  }
+}

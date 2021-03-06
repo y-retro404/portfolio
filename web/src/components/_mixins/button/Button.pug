@@ -1,0 +1,9 @@
+//- リンクボタン、イベント発火ボタンなど
+  Use
+  +Button("#", "hoge")
+  +Button("#", "hoge")(target="_blank")
+  +Button("#", "hoge")(id="id" class="class")
+  +Button("#", "hoge")(id="id" class="class" target="_blank")
+  +Button("#", "hoge")(id="js-modalTrigger")
+mixin Button(href, text)
+  a.button(id!=attributes.id class!=attributes.class href=href target!=attributes.target)= text

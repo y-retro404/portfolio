@@ -1,0 +1,9 @@
+ul.workList
+  each item, index in workListData
+    li
+      a.workList__item(href=`./0${index}`)
+        .workItem__imageWrapper
+          .workItem__image
+            img(src=`${imgRootPath}works/${item.name}/image1.jpg` alt=`${item.imageName}`)
+        span.workItem__text
+          | #{item.text}
